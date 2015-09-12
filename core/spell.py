@@ -9,7 +9,7 @@ class spell:
 
     def __init__(self, name):
 
-        self.name = name
+        self.name = name.lower()
         self.count_space = self.name.count(' ')
         self.data = self.load_list()
         self.candidates = self.compare()
@@ -17,7 +17,7 @@ class spell:
 
     def load_list(self):
         data = []
-        fi = open('manga.txt', 'r')
+        fi = open('core/manga.txt', 'r')
         lines = fi.readlines()
         for line in lines:
             data.append(line.replace('\n','').rstrip())
@@ -78,5 +78,5 @@ class spell:
 
 
 if __name__ == '__main__':
-    s = spell('cleace')
+    s = spell('FAIRY TALE')
     print(s.correct())
