@@ -31,7 +31,6 @@ class download:
         #download image of a chapter by finding the first
         #.jpg link in the html page. If anything goes wrong, error
         #should be in .jpg finding logic
-
         if not os.path.exists(str(chap)): os.makedirs(str(chap))
         current_page = 1
 
@@ -82,10 +81,10 @@ class download:
 
 
     def start_download(self):
-        current = self.start_chap
+        current = int(self.start_chap)
 
-        while current <= self.end_chap:
-            self.download_chap(current)
+        while current <= int(self.end_chap):
+            self.download_chap(str(current))
             current+=1
 
         return            
